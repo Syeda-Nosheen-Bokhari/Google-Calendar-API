@@ -5,16 +5,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashBoardComponent } from './dash-board/dash-board.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ListEventsComponent } from './list-events/list-events.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashBoardComponent
+    DashBoardComponent,
+    ListEventsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

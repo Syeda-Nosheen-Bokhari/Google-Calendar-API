@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 declare var createGoogleEvent: any;
+declare var execute: any;
 
 @Component({
   selector: 'app-dash-board',
@@ -18,6 +19,7 @@ export class DashBoardComponent {
     });
  }
  // Method to handle the button click event schedule a meeting.
+
     scheduleMeeting(){
       let appointmentTime = new Date(this.appointmentForm.value.appointmentTime);
 
@@ -39,6 +41,10 @@ export class DashBoardComponent {
       const endTime = appointmentTime.toISOString().slice(0, 18) + '-07:00';
       return endTime;
     }
-  
+
+    allevents(){
+      execute();
+      
+    }
 
 }

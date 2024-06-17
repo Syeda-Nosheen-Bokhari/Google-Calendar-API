@@ -4,8 +4,14 @@ const CLIENT_ID =
 const API_KEY = "AIzaSyCjPfzbxawfiS-dbHEUZVAWMAIo4YgYd7Y";
 const DISCOVERY_DOC = 
    "https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest";
+
+   //" https://www.googleapis.com/auth/calendar
+  //   https://www.googleapis.com/auth/calendar.events 
+  //   https://www.googleapis.com/auth/calendar.events.readonly  
+  //   https://www.googleapis.com/auth/calendar.readonly"
 const SCOPES =
- "https://www.googleapis.com/auth/admin.directory.resource.calendar";
+ //"https://www.googleapis.com/auth/admin.directory.resource.calendar";
+  " https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/calendar.events https://www.googleapis.com/auth/calendar.events.readonly https://www.googleapis.com/auth/calendar.readonly"
 let tokenClient;
 let gapiInited = false;
 let gisInited = false;
@@ -80,5 +86,19 @@ function scheduleEvent(eventDetails){
     request.execute(function (event) {
         console.info("Event created: " + event.htmlLink);
     });
+
+    function execute() {
+        return gapi.client.calendar.events.list({})
+            .then(function(response) {
+                    // Handle the results here (response.result has the parsed body).
+                    events.list('primary').setPageToken(pageToken).execute() ;
+                    events.getItems();
+
+                    console.log("Response", response);
+                  },
+                  function(err) { console.error("Execute error", err); });
+      }
+
+   
 
 }
