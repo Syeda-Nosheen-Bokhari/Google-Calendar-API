@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 declare var createGoogleEvent: any;
-declare var execute: any;
+
 
 @Component({
   selector: 'app-dash-board',
@@ -42,9 +42,6 @@ export class DashBoardComponent {
       return endTime;
     }
 
-    allevents(){
-      execute();
+  
       
     }
-
-}

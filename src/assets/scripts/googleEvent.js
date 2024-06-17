@@ -86,19 +86,6 @@ function scheduleEvent(eventDetails){
     request.execute(function (event) {
         console.info("Event created: " + event.htmlLink);
     });
-
-    function execute() {
-        return gapi.client.calendar.events.list({})
-            .then(function(response) {
-                    // Handle the results here (response.result has the parsed body).
-                    events.list('primary').setPageToken(pageToken).execute() ;
-                    events.getItems();
-
-                    console.log("Response", response);
-                  },
-                  function(err) { console.error("Execute error", err); });
-      }
-
-   
+  
 
 }
